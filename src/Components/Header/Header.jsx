@@ -1,12 +1,11 @@
 import React, { Fragment, Suspense, lazy } from "react";
 import Loader from "../../Shared/Loader";
+import Navbar from "../../Components/Navbar/Navbar";
 const Header = () => {
-  const Navbar = lazy(() => import("../Navbar/Navbar"));
+  // const Navbar = lazy(() => import("../Navbar/Navbar"));
   return (
     <Fragment>
-      <Suspense fallback={<Loader className="flex justify-center w-full" />}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
     </Fragment>
   );
 };
