@@ -5,7 +5,6 @@ export const getWetherDetails = async (cityName) => {
     const url =
       weatherURL + `current.json?key=${weatherKey}&q=${cityName}&aqi=no`;
     const weatherData = await axios.get(url);
-    console.log("TRY BLOCK");
     return weatherData;
   } catch (error) {
     console.error("CATCH ERROR", error.message);

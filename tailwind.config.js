@@ -40,6 +40,18 @@ module.exports = {
       "2xl": "1536px",
       // => @media (min-width: 1536px) { ... }
     },
+    width: {
+      "50rem": "50rem",
+      "70%": "70%",
+      "28rem": "28rem",
+    },
+    backgroundImage: {
+      weather: "url('/src/images/backgroudimage.webp')",
+    },
+    margin: {
+      "30rem": "30rem",
+      "24rem": "24rem",
+    },
   },
 
   plugins: [require("daisyui")],
