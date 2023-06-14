@@ -11,3 +11,14 @@ export const getWetherDetails = async (cityName) => {
     return error;
   }
 };
+
+export const getWetherDayForecast = async (cityName) => {
+  try {
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=a9c051bc6b7d464bb0921719231206&q=${cityName}&days=1&aqi=no&alerts=no`;
+    const weatherData = await axios.get(url);
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH FORECAST ERROR", error.message);
+    return error;
+  }
+};
