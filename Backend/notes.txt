@@ -1,0 +1,24 @@
+backend for creating our own server
+
+MVC/MCR arch
+
+M - Model
+V- View/frontend
+C - Controller
+
+M -Model
+C - Controller
+R - Routes
+
+SOAP API -->>>> XML
+
+
+
+REST API -->>> JSON
+GET 
+POST 
+DELETE
+PUT 
+PATCH
+
+// api which delete user from data , by sending id 
