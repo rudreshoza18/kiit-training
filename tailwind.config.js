@@ -55,6 +55,7 @@ module.exports = {
       "5px": "5px",
       "1rem": "1rem",
       "5rem": "5rem",
+      "15rem": "15rem",
       "10px": "10px",
     },
     height: {

@@ -6,8 +6,10 @@ export const WeatherCurrentDetails = ({ current, forecast, checkTemp }) => {
     <div
       className="bg-weather
   bg-no-repeat bg-center bg-cover
-  md:mx-24
-  lg:mx-24rem
+  sm:mx-1rem
+  md:mx-5rem
+  lg:mx-15rem
+  sm:p-5
   md:py-5
   md:px-10
   my-5
@@ -46,7 +48,10 @@ export const WeatherCurrentDetails = ({ current, forecast, checkTemp }) => {
                 .unix(ele.time_epoch)
                 .format("dddd, MMMM Do, YYYY h:mm:ss A")}
             </p>
-            <p>{ele.temp_c} &deg;C </p>
+            <p>
+              {checkTemp === "c" && <span>{ele.temp_c} &deg;C</span>}
+              {checkTemp === "f" && <span>{ele.temp_f} &deg;F</span>}
+            </p>
             <figure>
               {ele.condition.text}
               <img src={"https:" + ele.condition.icon} alt="noimagefound" />

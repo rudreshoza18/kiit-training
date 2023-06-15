@@ -10,6 +10,8 @@ import Loader from "../../Shared/Loader";
 import { useEffect } from "react";
 import WeatherDetailsBox from "./WeatherDetailsBox/WeatherDetailsBox";
 import { WeatherCurrentDetails } from "./WeatherCurrentDetails/WeatherCurrentDetails";
+import { WeatherSearch } from "./WeatherSearch/WeatherSearch";
+import WeatherTemp from "./WeatherTemp/WeatherTemp";
 const Weather = () => {
   const [cityname, setCityName] = useState("");
   const [checkTempDegree, setCheckTempDegree] = useState("c");
@@ -63,37 +65,16 @@ const Weather = () => {
     <>
       {/* toggle between temp */}
       {!loader && (
-        <div
-          className="flex justify-end items-center
-      my-10px
-      md:mx-24rem
-      md:w-64rem"
-        >
-          <button
-            className={toggleClass ? "btn btn-error mx-10px" : "btn mx-10px"}
-            onClick={() => toggleTempHandler("f")}
-          >
-            &deg; F
-          </button>
-          <button
-            className={toggleClass ? "btn" : "btn btn-success"}
-            onClick={() => toggleTempHandler("c")}
-          >
-            &deg; C
-          </button>
-        </div>
+        <WeatherTemp
+          toggleClass={toggleClass}
+          toggleTempHandler={toggleTempHandler}
+        />
       )}
       {/* search city input */}
-      <div className="flex justify-center items-center">
-        <Input
-          placeholder="enter cityname"
-          className="input-primary w-50rem"
-          onChange={cityNameHandler}
-          value={cityname}
-          type="text"
-        />
-        <Button buttonname="submit" onClick={getCurrentWeatherHandler} />
-      </div>
+      <WeatherSearch
+        cityNameHandler={cityNameHandler}
+        getCurrentWeatherHandler={getCurrentWeatherHandler}
+      />
 
       {/* weather details box */}
       {!loader && <WeatherDetailsBox location={weatherDetails.location} />}
