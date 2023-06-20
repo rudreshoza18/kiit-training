@@ -1,9 +1,8 @@
-import { weatherKey, weatherURL } from "../../Config/WeatherConfig";
+import { localURL } from "../../Config/WeatherConfig";
 import axios from "axios";
 export const getWetherDetails = async (cityName) => {
   try {
-    const url =
-      weatherURL + `current.json?key=${weatherKey}&q=${cityName}&aqi=no`;
+    const url = localURL + `currentweather?city=${cityName}&aqi=no`;
     const weatherData = await axios.get(url);
     return weatherData;
   } catch (error) {
@@ -14,7 +13,8 @@ export const getWetherDetails = async (cityName) => {
 
 export const getWetherDayForecast = async (cityName) => {
   try {
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=a9c051bc6b7d464bb0921719231206&q=${cityName}&days=1&aqi=no&alerts=no`;
+    const url =
+      localURL + `forecastweather?city=${cityName}&aqi=no&days=1&alert=no`;
     const weatherData = await axios.get(url);
     return weatherData;
   } catch (error) {

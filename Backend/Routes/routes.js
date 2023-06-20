@@ -5,6 +5,7 @@ const {
   editUser,
   deleteUser,
   currentWeather,
+  foreCastWeather,
 } = require("../Controllers/Controller");
 // const express = require("express");
 // const router = express.Router();
@@ -26,4 +27,5 @@ router.get("/methods", (request, response) => {
 });
 
 router.get("/currentweather", currentWeather);
+router.get("/forecastweather", foreCastWeather);
 module.exports = router;

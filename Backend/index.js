@@ -4,12 +4,16 @@ const chalk = require("chalk");
 const morgan = require("morgan");
 const app = express();
 const os = require("os");
+const cors = require("cors");
 const browser = require("browser-detect");
 const router = require("./Routes/routes");
+const rocketRouter = require("./Routes/RocketsRoutes");
 app.use(express.json()); // to parse payload
 app.use(morgan("dev"));
+app.use(cors("*"));
 const PORT = 8080 || process.env.PORT;
 app.use(router);
+app.use("/rocket", rocketRouter);
 // http
 //   .createServer((req, res) => {
 //     res.writeHead(200, { "Content-Type": "text/plain" });

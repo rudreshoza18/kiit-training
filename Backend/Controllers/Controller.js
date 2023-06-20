@@ -4,6 +4,7 @@ const {
   editUserModel,
   deleteUserModel,
   currentWeatherModel,
+  foreCastWeatherModel,
 } = require("../Models/Model");
 const getUser = (request, response) => {
   try {
@@ -90,8 +91,8 @@ const deleteUser = (request, response) => {
 };
 const currentWeather = async (request, response) => {
   try {
-    const params = request.query;
-    const data = await currentWeatherModel();
+    const queryParams = request.query;
+    const data = await currentWeatherModel(queryParams);
     response.status(200).json(data);
   } catch (error) {
     console.error(error.message);
@@ -104,4 +105,27 @@ const currentWeather = async (request, response) => {
     response.status(400).json(errorObj);
   }
 };
-module.exports = { getUser, addUser, deleteUser, editUser, currentWeather };
+const foreCastWeather = async (request, response) => {
+  try {
+    const queryParams = request.query;
+    const data = await foreCastWeatherModel(queryParams);
+    response.status(200).json(data);
+  } catch (error) {
+    console.error(error.message);
+    const errorObj = {
+      total: 0,
+      data,
+      message: error.message,
+      status: 400,
+    };
+    response.status(400).json(errorObj);
+  }
+};
+module.exports = {
+  getUser,
+  addUser,
+  deleteUser,
+  editUser,
+  currentWeather,
+  foreCastWeather,
+};
