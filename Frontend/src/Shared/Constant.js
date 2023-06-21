@@ -1,6 +1,6 @@
 import { RxCounterClockwiseClock } from "react-icons/rx";
 import { DiReact } from "react-icons/di";
-import { GiBodyHeight } from "react-icons/gi";
+import { GiBodyHeight,GiSpaceShuttle } from "react-icons/gi";
 import { TiWeatherCloudy } from "react-icons/ti";
 export const navbar = [
   {
@@ -27,5 +27,10 @@ export const navbar = [
     route: "/counter1",
     name: "counter1",
     icons: <TiWeatherCloudy />,
+  },
+  {
+    route: "/spacex",
+    name: "spaceX",
+    icons: <GiSpaceShuttle />,
   },
 ];

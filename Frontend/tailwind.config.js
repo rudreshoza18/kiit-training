@@ -18,6 +18,7 @@ module.exports = {
       gray: "#8492a6",
       "gray-light": "#d3dce6",
       white: "#fff",
+      lightgreen: "#a0dbba",
     },
     fontFamily: {
       sans: ["Graphik", "sans-serif"],
@@ -42,7 +43,9 @@ module.exports = {
     },
     width: {
       "50rem": "50rem",
+      "40rem": "40rem",
       "70%": "70%",
+      "100%": "100%",
       "28rem": "28rem",
       "64rem": "64rem",
     },

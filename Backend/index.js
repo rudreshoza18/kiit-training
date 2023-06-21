@@ -13,7 +13,7 @@ app.use(morgan("dev"));
 app.use(cors("*"));
 const PORT = 8080 || process.env.PORT;
 app.use(router);
-app.use("/rocket", rocketRouter);
+app.use("/space", rocketRouter);
 // http
 //   .createServer((req, res) => {
 //     res.writeHead(200, { "Content-Type": "text/plain" });

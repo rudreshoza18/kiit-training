@@ -22,3 +22,14 @@ export const getWetherDayForecast = async (cityName) => {
     return error;
   }
 };
+export const getRockets = async () => {
+  try {
+    const url = localURL + `space/rockets`;
+    const weatherFetch = await fetch(url);
+    const weatherData = await weatherFetch.json();
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH FORECAST ERROR", error.message);
+    return error;
+  }
+};
