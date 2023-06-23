@@ -1,14 +1,20 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { getRockets } from "../../Shared/Api/WeatherApi";
 import { RocketsDetails } from "./RocketsDetails/RocketsDetails";
+import RocketPlaceholder from "../../Shared/RocketPlaceholder";
+import SpaceLoader from "../../Shared/SpaceLoader";
 const Spacex = () => {
   const [rocketsData, setrocketsData] = useState([]);
+  const [loader, setLoader] = useState(false);
   const getRocketsData = async () => {
+    setLoader(true);
     const data = await getRockets();
     if (data.status === 200) {
+      setLoader(false);
       console.log(data);
       setrocketsData(data.data);
     } else {
+      setLoader(false);
       setrocketsData([]);
     }
   };
@@ -18,7 +24,12 @@ const Spacex = () => {
   }, []);
   return (
     <Fragment>
-      <div>{rocketsData.length === 0 && <p>no data available</p>}</div>
+      <div className="flex justify-center items-center">
+        {loader && <SpaceLoader />}
+      </div>
+      <div>
+        {rocketsData.length === 0 && !loader && <p>no data available</p>}
+      </div>
       <div>
         {rocketsData.length !== 0 && (
           <div>

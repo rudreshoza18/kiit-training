@@ -12,4 +12,14 @@ const getRocketsModel = async () => {
     throw error;
   }
 };
-module.exports = { getRocketsModel };
+const getRocketModel = async (rocketId) => {
+  try {
+    const fetchRockets = await fetch(url + "/rockets/" + rocketId);
+    const rockets = await fetchRockets.json();
+    return rockets;
+  } catch (error) {
+    console.error(chalk.bgRed(error.message));
+    throw error;
+  }
+};
+module.exports = { getRocketsModel, getRocketModel };

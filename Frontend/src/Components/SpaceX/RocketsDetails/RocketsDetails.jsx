@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BsRocketTakeoff } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaWikipediaW } from "react-icons/fa";
 export const RocketsDetails = ({
   id = "",
   desc = "",
@@ -15,6 +16,7 @@ export const RocketsDetails = ({
   active = false,
   firstFlight = "",
 }) => {
+  const navigate = useNavigate();
   const [customActiveClass, setCustomaActiveClass] = useState("");
   const setActiveClass = () => {
     if (active) {
@@ -22,6 +24,10 @@ export const RocketsDetails = ({
     } else {
       setCustomaActiveClass("bg-orange ");
     }
+  };
+  const rocketHandler = () => {
+    console.log(rocketId);
+    navigate("/rocket/" + rocketId);
   };
   useEffect(() => {
     setActiveClass();
@@ -50,7 +56,6 @@ export const RocketsDetails = ({
                 <p>company:-{company}</p>
                 <p>country:-{country}</p>
                 <p> rocketype:-{rocketType}</p>
-
                 <p>mass :- {mass.kg} kg</p>
                 <p>active :-{"" + active}</p>
                 <p>firstflight :- {firstFlight}</p>
@@ -59,9 +64,9 @@ export const RocketsDetails = ({
             <div className="card-actions justify-stretch w-100%">
               <div className="flex justify-between items-center space-x-3 w-100%">
                 <a href={wiki} target="_blank" rel="noreferrer">
-                  {wiki}
+                  <FaWikipediaW className="text-xl" />
                 </a>
-                <button className="btn btn-primary">
+                <button className="btn btn-primary" onClick={rocketHandler}>
                   <BsRocketTakeoff />
                 </button>
               </div>

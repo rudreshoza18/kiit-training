@@ -7,6 +7,7 @@ import Bmi from "../Components/BMI/Bmi";
 import Weather from "../Components/Weather/Weather";
 import CounterPrac from "../Components/CounterPrac/CounterPrac";
 import Spacex from "../Components/SpaceX/Spacex";
+import Rocket from "../Components/SpaceX/Rocket/Rocket";
 const RoutesModule = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const RoutesModule = () => {
         <Route path="weather" element={<Weather />} />
         <Route path="counter1" element={<CounterPrac />} />
         <Route path="spacex" element={<Spacex />} />
+        <Route path="rocket/:id" element={<Rocket />} />
         {/* wild card characters */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>

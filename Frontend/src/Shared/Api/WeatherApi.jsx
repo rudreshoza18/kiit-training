@@ -33,3 +33,14 @@ export const getRockets = async () => {
     return error;
   }
 };
+export const getRocketServices = async (rocketId = "") => {
+  try {
+    const url = localURL + `space/rocket/${rocketId}`;
+    const weatherFetch = await fetch(url);
+    const weatherData = await weatherFetch.json();
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH FORECAST ERROR", error.message);
+    return error;
+  }
+};

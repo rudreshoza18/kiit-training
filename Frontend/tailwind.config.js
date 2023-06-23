@@ -48,6 +48,7 @@ module.exports = {
       "100%": "100%",
       "28rem": "28rem",
       "64rem": "64rem",
+      "5rem": "5rem",
     },
     backgroundImage: {
       weather: "url('/src/images/backgroudimage.webp')",
@@ -64,6 +65,7 @@ module.exports = {
     height: {
       "35rem": "35rem",
       "100vh": "100vh",
+      "5rem": "5rem",
     },
   },
 
