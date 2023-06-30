@@ -47,7 +47,6 @@ const deleteUserModel = (params) => {
 const editUserModel = (body, params) => {
   try {
     const user = data.find((ele) => ele.id === +params.id);
-    console.log(user);
     user.name = body.name;
     return user;
   } catch (error) {

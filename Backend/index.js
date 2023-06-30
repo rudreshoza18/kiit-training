@@ -8,12 +8,16 @@ const cors = require("cors");
 const browser = require("browser-detect");
 const router = require("./Routes/routes");
 const rocketRouter = require("./Routes/RocketsRoutes");
+const usersRoute = require("./Routes/UserRoutes");
+const { connectDb } = require("./Db/Db");
 app.use(express.json()); // to parse payload
 app.use(morgan("dev"));
 app.use(cors("*"));
 const PORT = 8080 || process.env.PORT;
+connectDb();
 app.use(router);
 app.use("/space", rocketRouter);
+app.use("/user", usersRoute);
 // http
 //   .createServer((req, res) => {
 //     res.writeHead(200, { "Content-Type": "text/plain" });
