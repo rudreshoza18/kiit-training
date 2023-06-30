@@ -8,7 +8,7 @@ const config = {
   },
   db: {
     username: "",
-    password: "MlOayPhoJbvsGa7S",
+    password: "",
     url: "mongodb://127.0.0.1:27017/",
   },
 };
