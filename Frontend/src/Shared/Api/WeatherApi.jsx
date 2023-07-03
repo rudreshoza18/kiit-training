@@ -1,4 +1,4 @@
-import { localURL } from "../../Config/WeatherConfig";
+import { localURL, userURL } from "../../Config/WeatherConfig";
 import axios from "axios";
 export const getWetherDetails = async (cityName) => {
   try {
@@ -41,6 +41,31 @@ export const getRocketServices = async (rocketId = "") => {
     return weatherData;
   } catch (error) {
     console.error("CATCH FORECAST ERROR", error.message);
+    return error;
+  }
+};
+export const addUser = async (
+  payload = { name: "", age: "", isActive: false }
+) => {
+  try {
+    const url = userURL + `user`;
+    const weatherData = await axios.post(url, payload);
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH ADD USER ERROR", error.message);
+    return error;
+  }
+};
+export const getUsers = async (
+  payload = { name: "", age: "", isActive: false }
+) => {
+  try {
+    const url = userURL + `users`;
+    const weatherAxios = await axios.get(url);
+    const weatherData = await weatherAxios.data;
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH GET USERS ERROR", error.message);
     return error;
   }
 };

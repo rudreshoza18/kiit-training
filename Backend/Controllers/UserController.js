@@ -21,7 +21,8 @@ const getUsers = async (req, res) => {
 
 const addUsers = async (req, res) => {
   try {
-    const user = await addUsersModel();
+    const payload = { ...req.body } || {};
+    const user = await addUsersModel(payload);
     res.status(200).json(user);
   } catch (error) {
     console.error(error.message);

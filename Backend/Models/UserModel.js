@@ -9,11 +9,9 @@ const getUsersModel = async () => {
     return error;
   }
 };
-const addUsersModel = async () => {
+const addUsersModel = async (paylaod) => {
   try {
-    const user = await Users.insertMany([
-      { name: "ram", age: 49, isActive: false },
-    ]);
+    const user = await Users.insertMany([paylaod]);
     return user;
   } catch (error) {
     console.error("get users", error.message);

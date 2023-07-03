@@ -8,9 +8,9 @@ const {
 const routes = require("express").Router();
 
 routes.get("/users", getUsers);
-routes.post("/users", addUsers);
-routes.post("/students", addStudents);
+routes.post("/user", addUsers);
 routes.put("/user", editUser);
 routes.delete("/user", deleteUser);
 
+routes.post("/students", addStudents);
 module.exports = routes;

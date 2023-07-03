@@ -8,6 +8,9 @@ import Weather from "../Components/Weather/Weather";
 import CounterPrac from "../Components/CounterPrac/CounterPrac";
 import Spacex from "../Components/SpaceX/Spacex";
 import Rocket from "../Components/SpaceX/Rocket/Rocket";
+import Users from "../Components/Users/Users";
+import UsersList from "../Components/Users/UsersList";
+import UserEdit from "../Components/Users/UserEdit";
 const RoutesModule = () => {
   return (
     <>
@@ -20,6 +23,9 @@ const RoutesModule = () => {
         <Route path="counter1" element={<CounterPrac />} />
         <Route path="spacex" element={<Spacex />} />
         <Route path="rocket/:id" element={<Rocket />} />
+        <Route path="adduser" element={<Users />} />
+        <Route path="users" element={<UsersList />} />
+        <Route path="editusers/:username" element={<UserEdit />} />
         {/* wild card characters */}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
