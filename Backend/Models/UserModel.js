@@ -1,8 +1,18 @@
+const { Schema } = require("mongoose");
 const { Student } = require("../Schemas/Schemas");
 const { Users } = require("../Schemas/UserSchemas");
 const getUsersModel = async () => {
   try {
     const users = await Users.find({});
+    return users;
+  } catch (error) {
+    console.error("get users", error.message);
+    return error;
+  }
+};
+const getUserModel = async ({ username }) => {
+  try {
+    const users = await Users.find({ name: username });
     return users;
   } catch (error) {
     console.error("get users", error.message);
@@ -20,17 +30,26 @@ const addUsersModel = async (paylaod) => {
   }
 };
 
-const editUsersModel = async () => {
+const editUsersModel = async ({ username, payload }) => {
   try {
-    const editedUser = Users.updateOne({ name: "ram" }, { $set: { age: 40 } });
+    const editedUser = Users.updateOne(
+      { name: username },
+      {
+        $set: {
+          age: payload.age,
+          isActive: payload.isActive,
+          updated: new Date(),
+        },
+      }
+    );
     return editedUser;
   } catch (error) {
     throw error;
   }
 };
-const deleteUserModel = async () => {
+const deleteUserModel = async (username = "") => {
   try {
-    const deletedUser = Users.deleteOne({ name: "ram" });
+    const deletedUser = Users.deleteOne({ name: username });
     return deletedUser;
   } catch (error) {
     throw error;
@@ -54,4 +73,5 @@ module.exports = {
   addStudentModel,
   editUsersModel,
   deleteUserModel,
+  getUserModel,
 };

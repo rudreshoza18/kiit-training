@@ -69,3 +69,39 @@ export const getUsers = async (
     return error;
   }
 };
+export const editUser = async ({
+  payload = { age: "0", isActive: false },
+  username = "",
+}) => {
+  try {
+    const url = userURL + `user`;
+    const weatherAxios = await axios.put(url + `?name=${username}`, payload);
+    const weatherData = await weatherAxios.data;
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH GET USERS ERROR", error.message);
+    return error;
+  }
+};
+export const getUser = async ({ username = "" }) => {
+  try {
+    const url = userURL + `user`;
+    const weatherAxios = await axios.get(url + `?name=${username}`);
+    const weatherData = await weatherAxios.data;
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH GET USERS ERROR", error.message);
+    return error;
+  }
+};
+export const deleteUser = async ({ username = "" }) => {
+  try {
+    const url = userURL + `user`;
+    const weatherAxios = await axios.delete(url + `?name=${username}`);
+    const weatherData = await weatherAxios.data;
+    return weatherData;
+  } catch (error) {
+    console.error("CATCH GET USERS ERROR", error.message);
+    return error;
+  }
+};

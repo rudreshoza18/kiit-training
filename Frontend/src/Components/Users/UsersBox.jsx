@@ -3,7 +3,14 @@ import { BiNavigation } from "react-icons/bi";
 import moment from "moment";
 import Input from "../../Shared/Input";
 import { useNavigate } from "react-router-dom";
-export const UsersBox = ({ name, age, isActive, key, updated }) => {
+export const UsersBox = ({
+  name,
+  age,
+  isActive,
+  key,
+  updated,
+  onDeleteHandler,
+}) => {
   const formattedData = moment(updated).format("LLL");
   const navigate = useNavigate();
   const editUserHandler = (username) => {
@@ -26,6 +33,13 @@ export const UsersBox = ({ name, age, isActive, key, updated }) => {
                 onClick={() => editUserHandler(name)}
               >
                 <BiNavigation />
+              </button>
+              <button
+                buttonname="delete"
+                className="btn btn-error"
+                onClick={() => onDeleteHandler(name)}
+              >
+                delete
               </button>
             </div>
           </div>

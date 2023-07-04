@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUsers } from "../../Shared/Api/WeatherApi";
 import { UsersBox } from "./UsersBox";
+import { deleteUser } from "../../Shared/Api/WeatherApi";
 const UsersList = () => {
   const [userList, setUserList] = useState([]);
   const getUsersHandler = async () => {
@@ -11,6 +12,18 @@ const UsersList = () => {
       console.error(error.message);
       setUserList([]);
     }
+  };
+  const deleteUserData = async (username) => {
+    try {
+      await deleteUser({ username });
+      window.location.reload(false);
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
+  const deleteUserHandler = (username) => {
+    console.log(username);
+    deleteUserData(username);
   };
   useEffect(() => {
     getUsersHandler();
@@ -25,6 +38,7 @@ const UsersList = () => {
             isActive={ele.isActive}
             key={i}
             updated={ele.updated}
+            onDeleteHandler={deleteUserHandler}
           />
         ))}
       {userList && <p>No data available</p>}
